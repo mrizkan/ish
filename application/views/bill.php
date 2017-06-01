@@ -6,7 +6,9 @@
     .button-list {
         overflow: hidden;
     }
+
 </style>
+
 
 <body class="fixed-left">
 
@@ -42,6 +44,8 @@
                                 <div class="col-lg-12">
                                     <div class='row' id='details'>
                                         <div class='col-lg-3'>
+                                            <?= form_open(); ?>
+
                                             <fieldset class='form-group'>
                                                 <label>Product Name</label>
                                             </fieldset>
@@ -64,51 +68,109 @@
                                         </div>
 
                                     </div>
+
                                     <?php
-                                    for ($r = 0; $r <$i;  $r++){
 
-                                        echo"<div class='row' id='details'>
-                                        <div class='col-lg-3'>
-                                            <fieldset class='form-group'>
+                                    for ($r = 0; $r < $result['i']; $r++) {
 
-                                                <input type='text' name='pname[]' placeholder='Product Name' required='' autocomplete='off' data-parsley-id='34' class='form-control' id='pname[]'>
+                                        ?>
+                                    <?php /*foreach ($result as $k => $row) { */?>
 
-                                            </fieldset>
+
+                                        <div class='row' id='details'>
+                                            <div class='col-lg-3'>
+                                                <fieldset class='form-group'>
+
+                                                    <input type='text' name='proname[]' class='form-control'
+                                                           id='proname[]'
+                                                           value='<?= $result['final_array_collection'][$r]['proname'] ?>'
+                                                           readonly>
+
+                                                </fieldset>
+                                            </div>
+
+                                            <div class='col-lg-3'>
+                                                <fieldset class='form-group'>
+
+                                                    <input type='text' class='form-control' id='uprice[]'
+                                                           name='uprice[]'
+                                                           value='<?= $result['final_array_collection'][$r]['price'] ?>'
+                                                           readonly>
+                                                </fieldset>
+                                            </div>
+                                            <div class='col-lg-3'>
+                                                <fieldset class='form-group'>
+
+                                                    <input type='text' class='form-control' id='qty[]' name='qty[]'
+                                                           value='<?= $result['final_array_collection'][$r]['qty'] ?>'
+                                                           readonly>
+                                                </fieldset>
+                                            </div>
+                                            <div class='col-lg-3'>
+                                                <fieldset class='form-group'>
+
+                                                    <input type='text' class='form-control' id='total[]' name='total[]'
+                                                           value='<?= $result['final_array_collection'][$r]['total'] ?>'
+                                                           readonly>
+                                                </fieldset>
+                                            </div>
+
                                         </div>
 
-                                        <div class='col-lg-3'>
+                                    <?php
+
+                                    } ?>
+                                   <div class='row'>
+                                            <div class='col-lg-8'>
                                             <fieldset class='form-group'>
 
-                                                <input type='text' class='form-control' id='qty[]' required='' autocomplete='off' name='qty[]' placeholder='Quantity' data-parsley-id='46'>
+                                                <input type='text' class='form-control' id='hide[]' name='hide[]' hidden='hidden'>
                                             </fieldset>
                                         </div>
-                                        <div class='col-lg-3'>
+                                        <div class='col-lg-1'>
+                                            <fieldset class='form-group'>
+                                                <label style='margin-top: 10px'>Discount</label>
+                                            </fieldset>
+                                        </div>
+                                            <div class='col-lg-3'>
                                             <fieldset class='form-group'>
 
-                                                <input type='text' class='form-control' id='qty[]' required='' autocomplete='off' name='qty[]' placeholder='Quantity' data-parsley-id='46'>
+                                                <input type='text' class='form-control' id='hide2[]'name='hide2[]'>
                                             </fieldset>
                                         </div>
-                                        <div class='col-lg-3'>
+                                        </div>
+                                    <div class='row'>
+                                            <div class='col-lg-8'>
                                             <fieldset class='form-group'>
 
-                                                <input type='text' class='form-control' id='qty[]' required='' autocomplete='off' name='qty[]' placeholder='Quantity' data-parsley-id='46'>
+                                                <input type='text' class='form-control' id='hide3[]' name='hide3[]' hidden='hidden'>
                                             </fieldset>
                                         </div>
+                                        <div class='col-lg-1'>
+                                            <fieldset class='form-group'>
+                                                <label style='margin-top: 10px'>Subtotal</label>
+                                            </fieldset>
+                                        </div>
+                                            <div class='col-lg-3'>
+                                            <fieldset class='form-group'>
 
-                                    </div>"; ///this is the end div
+                                                <input type='text' class='form-control' id='subtotal[]'   readonly name='subtotal[]' style='text-align: center' value='<?= $result['subtotal']?>'>
+                                            </fieldset>
+                                        </div>
+                                        </div>
 
-                                        }
-                                    ?>
+
                                 </div>
                                 <!-- end col -->
 
                             </div>
                             <!-- end row -->
+                            <?php /*} */?>
                             <div class="button-list">
-                                <button type="submit" class="btn btn-primary" style="float: right">Proceed to Bill</button>
-
+                                <button type="submit" class="btn btn-primary" style="float: right">Proceed to Bill
+                                </button>
+                                <?php echo form_close(); ?>
                             </div>
-
 
 
                         </div>
@@ -123,10 +185,10 @@
         </div>
         <!-- content -->
     </div>
-    </div>
+</div>
 
-    <!-- End content-page -->
-    <?php include('inc/footer.php') ?>
+<!-- End content-page -->
+<?php include('inc/footer.php') ?>
 
 
 

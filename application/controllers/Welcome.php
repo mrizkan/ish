@@ -142,6 +142,7 @@ class Welcome extends CI_Controller
             $i = 0;
             $data = array();
             $subtotal = 0;
+            $final_array_collection =array();
 
 
 
@@ -162,7 +163,6 @@ class Welcome extends CI_Controller
 
                 }
 
-
                 $value = $this->insert_model->get_price($pid); ///pasing the product id to get the the price from database
 
                 foreach ($value->result() as $row)
@@ -170,29 +170,16 @@ class Welcome extends CI_Controller
                     $price = $row->price;
                 }
 
-               // echo"Product Name is = ".$proname."<br>";
-               // echo "Quantity = ".$qty."<br>";
-
                 $total = $price * $qty; ////Total calculation
 
-               // echo"The total value is = Rs. ".$total."<br><br><br>";
-
-                $result = compact("proname","price","qty","total");
-
-
                 $subtotal = $subtotal + $total;/////Sub Total Calculation
-
+                $final_array_collection[] =array("proname"=>$proname, "price"=>$price, "qty"=>$qty, "total"=>$total);
                 $i++;
-
             }
-           // echo $i;
-            $a = compact ("i");
-            $this->load->view("bill", $a);
-            ///echo "<br><br><br><br> Subtotal is = Rs. ".$subtotal."<br>";
 
-            /*exit;*/
+            $result['result'] = compact("final_array_collection", "i", "subtotal");
 
-
+            $this->load->view("bill", $result);
         }
 
 
