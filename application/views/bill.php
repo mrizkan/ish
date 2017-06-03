@@ -44,7 +44,7 @@
                                 <div class="col-lg-12">
                                     <div class='row' id='details'>
                                         <div class='col-lg-3'>
-                                            <?= form_open(); ?>
+                                            <?= form_open('Welcome/bill_data'); ?>
 
                                             <fieldset class='form-group'>
                                                 <label>Product Name</label>
@@ -85,6 +85,9 @@
                                                            id='proname[]'
                                                            value='<?= $result['final_array_collection'][$r]['proname'] ?>'
                                                            readonly>
+                                                    <input type='text' name='pid[]' hidden="hidden" class='form-control'
+                                                           id='pid[]'
+                                                           value='<?= $result['final_array_collection'][$r]['pid'] ?>'>
 
                                                 </fieldset>
                                             </div>
@@ -135,7 +138,7 @@
                                             <div class='col-lg-3'>
                                             <fieldset class='form-group'>
 
-                                                <input type='text' class='form-control' id='hide2[]'name='hide2[]'>
+                                                <input type='text' class='form-control' id='discount'name='discount'>
                                             </fieldset>
                                         </div>
                                         </div>
@@ -154,7 +157,7 @@
                                             <div class='col-lg-3'>
                                             <fieldset class='form-group'>
 
-                                                <input type='text' class='form-control' id='subtotal[]'   readonly name='subtotal[]' style='text-align: center' value='<?= $result['subtotal']?>'>
+                                                <input type='text' class='form-control' id='subtotal'   readonly name='subtotal' style='text-align: center' value='<?= $result['subtotal']?>'>
                                             </fieldset>
                                         </div>
                                         </div>

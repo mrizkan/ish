@@ -1,3 +1,9 @@
+<?php
+echo '<pre>';
+print_r($data2);
+echo '</pre>';
+?>
+
 <?php include('inc/header.php')?>
 <body class="fixed-left">
 
@@ -51,7 +57,7 @@
                                     </div><!-- end col -->
                                 </div>
                                 <!-- end row -->
-
+                               <!-- --><?php /* foreach ($data2 as $row) {    */?>
                                 <div class="m-h-50"></div>
 
                                 <div class="row">
@@ -59,8 +65,8 @@
                                         <div class="table-responsive">
                                             <table class="table m-t-30">
                                                 <thead class="bg-faded">
-                                                <tr><th>#</th>
-                                                    <th>Item</th>
+                                                <tr>
+                                                    <th>Product Name</th>
                                                     <th>Description</th>
                                                     <th>Quantity</th>
                                                     <th>Unit Cost</th>
@@ -68,8 +74,8 @@
                                                 </tr></thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>LCD</td>
+
+                                                    <td><?= $data2['proname'] ?></td>
                                                     <td>Lorem ipsum dolor sit amet.</td>
                                                     <td>1</td>
                                                     <td>$380</td>
@@ -139,6 +145,7 @@
                                     <div class="pull-xs-right">
                                         <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i class="fa fa-print"></i></a>
                                         <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
+                                        <?php /*} */?>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

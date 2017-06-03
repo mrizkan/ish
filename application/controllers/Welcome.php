@@ -173,7 +173,7 @@ class Welcome extends CI_Controller
                 $total = $price * $qty; ////Total calculation
 
                 $subtotal = $subtotal + $total;/////Sub Total Calculation
-                $final_array_collection[] =array("proname"=>$proname, "price"=>$price, "qty"=>$qty, "total"=>$total);
+                $final_array_collection[] =array("proname"=>$proname, "price"=>$price, "qty"=>$qty, "total"=>$total, "pid"=>$pid);
                 $i++;
             }
 
@@ -186,9 +186,21 @@ class Welcome extends CI_Controller
     }
 
 
-    public function image()
+    public function bill_data()
     {
-        $this->load->view('invoice');
+        $data2 = array(
+            'pid' => $this->input->post('pid[]'),
+            'proname' => $this->input->post('proname[]'),
+            'uprice' => $this->input->post('uprice[]'),
+            'qty' => $this->input->post('qty[]'),
+            'date' => date('Y/m/d'),
+            'total' => $this->input->post('total[]'),
+            'discount' => $this->input->post('discount'),
+            'subtotal' => $this->input->post('subtotal'),
+        );
+
+        $this->load->view("invoice",$data2);
+
     }
 
 
