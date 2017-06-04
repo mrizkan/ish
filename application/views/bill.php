@@ -1,3 +1,4 @@
+
 <?php include('inc/header.php') ?>
 
 
@@ -44,6 +45,7 @@
                                 <div class="col-lg-12">
                                     <div class='row' id='details'>
                                         <div class='col-lg-3'>
+
                                             <?= form_open('Welcome/bill_data'); ?>
 
                                             <fieldset class='form-group'>

@@ -188,18 +188,31 @@ class Welcome extends CI_Controller
 
     public function bill_data()
     {
-        $data2 = array(
+        $data['data2'] = array(
             'pid' => $this->input->post('pid[]'),
             'proname' => $this->input->post('proname[]'),
             'uprice' => $this->input->post('uprice[]'),
             'qty' => $this->input->post('qty[]'),
-            'date' => date('Y/m/d'),
             'total' => $this->input->post('total[]'),
             'discount' => $this->input->post('discount'),
             'subtotal' => $this->input->post('subtotal'),
         );
 
-        $this->load->view("invoice",$data2);
+        foreach ($data as $entry) {
+
+            $discount = $entry['discount'];
+            $subtotal = $entry['subtotal'];
+
+        }
+
+        $subtotal = $subtotal - $discount;
+        $final_result[] = compact("data", "subtotal");
+        /*echo '<pre>';
+        print_r($final_result);
+        echo '</pre>';
+        exit;*/
+
+        $this->load->view("invoice", $final_result);
 
     }
 
