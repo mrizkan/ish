@@ -1,125 +1,58 @@
-
 <!DOCTYPE html>
-<html>
+<html >
+<?php include('inc/header.php') ?>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="Rizkan" content="soft">
-
-    <!-- App Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-
-    <!-- App title -->
+    <meta charset="UTF-8">
     <title>Ishra Auto Traders</title>
 
-    <!-- App CSS -->
-    <link href="<?= base_url() ?>css/style.css" rel="stylesheet" type="text/css" />
 
-    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.<?= base_url() ?>js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 
-    <script src="<?= base_url() ?>js/modernizr.min.js"></script>
+    <link rel="stylesheet" href="<?= base_url() ?>css/flog.css">
+
 
 </head>
 
-
 <body>
+<div class="wrapper">
+    <div class="container">
+        <!--<img src="<?php /*echo base_url(); */?>images/logo.png" width="200px" height="120px">-->
+        <h1>Ishra Auto Traders</h1>
 
-<div class="account-pages"></div>
-<div class="clearfix"></div>
-<div class="wrapper-page">
+        <?= form_open('Welcome/pinsert'); ?>
+        <div class="form-group center-block text-center   " >
 
-    <div class="account-bg">
-        <div class="card-box m-b-0">
-            <div class="text-xs-center m-t-20">
-                <a href="index.html" class="logo">
-                    <i></i>
-                    <span>Ishra Auto Traders</span>
-                </a>
-            </div>
-            <div class="m-t-30 m-b-20">
-                <div class="col-xs-12 text-xs-center">
-
-                    <h6 class="text-muted text-uppercase m-b-0 m-t-0">Sign In</h6>
-                </div>
-
-                <?= form_open('Welcome/pinsert'); ?>
+            <strong class="text-danger " >
+                <?= $this->session->flashdata("error"); ?>
+            </strong>
+            <!--<strong class="text-danger " > <?/*= @$error  */?> </strong>-->
 
 
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" placeholder="Username">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input class="form-control" type="password" required="" placeholder="Password">
-                        </div>
-                    </div>
-
-                    <div class="form-group ">
-                        <div class="col-xs-12">
-                            <div class="checkbox checkbox-custom">
-                                <input id="checkbox-signup" type="checkbox">
-                                <label for="checkbox-signup">
-                                    Remember me
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="form-group text-center m-t-30">
-                        <div class="col-xs-12">
-                            <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Log In</button>
-                        </div>
-                    </div>
-
-                    <!--<div class="form-group m-t-30 m-b-0">
-                        <div class="col-sm-12">
-                            <a href="pages-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
-                        </div>
-                    </div>-->
-
-                <?php echo form_close(); ?>
-
-            </div>
         </div>
+
+        <input type="text" required="" name="username" autocomplete="off" placeholder="User Name" data-parsley-id="34">
+        <!--   <input type="text" name="username" autocomplete="off" placeholder="Username">
+  <input type="password" name="password" autocomplete="off" placeholder="Password">-->
+        <input type="password" required="" name="password" autocomplete="off" placeholder="Password" data-parsley-id="34">
+        <button type="submit">Login</button>
+        <?php echo form_close(); ?>
     </div>
-    <!-- end card-box-->
 
-
-
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>
-<!-- end wrapper page -->
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
-<script>
-    var resizefunc = [];
-</script>
-
-<!-- jQuery  -->
-<script src="<?= base_url() ?>js/jquery.min.js"></script>
-<script src="<?= base_url() ?>js/tether.min.js"></script><!-- Tether for Bootstrap -->
-<script src="<?= base_url() ?>js/bootstrap.min.js"></script>
-<script src="<?= base_url() ?>js/detect.js"></script>
-<script src="<?= base_url() ?>js/fastclick.js"></script>
-<script src="<?= base_url() ?>js/jquery.blockUI.js"></script>
-<script src="<?= base_url() ?>js/waves.js"></script>
-<script src="<?= base_url() ?>js/jquery.nicescroll.js"></script>
-<script src="<?= base_url() ?>js/jquery.scrollTo.min.js"></script>
-<script src="<?= base_url() ?>js/jquery.slimscroll.js"></script>
-<script src="plugins/switchery/switchery.min.js"></script>
-
-<!-- App js -->
-<script src="<?= base_url() ?>js/jquery.core.js"></script>
-<script src="<?= base_url() ?>js/jquery.app.js"></script>
 
 </body>
 </html>

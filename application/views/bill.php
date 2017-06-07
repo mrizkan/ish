@@ -140,7 +140,7 @@
                                             <div class='col-lg-3'>
                                             <fieldset class='form-group'>
 
-                                                <input type='text' class='form-control' id='discount'name='discount'>
+                                                <input type='text' class='form-control' id='discount'name='discount' value="0" autocomplete="off">
                                             </fieldset>
                                         </div>
                                         </div>

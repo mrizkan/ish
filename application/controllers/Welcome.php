@@ -173,7 +173,7 @@ class Welcome extends CI_Controller
                 $total = $price * $qty; ////Total calculation
 
                 $subtotal = $subtotal + $total;/////Sub Total Calculation
-                $final_array_collection[] =array("proname"=>$proname, "price"=>$price, "qty"=>$qty, "total"=>$total, "pid"=>$pid);
+                $final_array_collection[] =array("proname"=>$proname, "price"=>$price, "qty"=>$qty, "total"=>$total, "pid"=>$pid);//creating array to pass to view
                 $i++;
             }
 
@@ -187,6 +187,7 @@ class Welcome extends CI_Controller
 
 
     public function bill_data()
+
     {
         $data['data2'] = array(
             'pid' => $this->input->post('pid[]'),
@@ -199,20 +200,21 @@ class Welcome extends CI_Controller
         );
 
         foreach ($data as $entry) {
-
             $discount = $entry['discount'];
             $subtotal = $entry['subtotal'];
-
+            $pid = $entry['pid'];
+            $proname = $entry['proname'];
+            $uprice = $entry['uprice'];
+            $qty = $entry['qty'];
+            $total = $entry['total'];
         }
 
         $subtotal = $subtotal - $discount;
-        $final_result[] = compact("data", "subtotal");
-        /*echo '<pre>';
-        print_r($final_result);
-        echo '</pre>';
-        exit;*/
+        $a = count($pid);//getting the array count to loop through the array
 
-        $this->load->view("invoice", $final_result);
+        $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a"); //creating new array to pass to view
+
+        $this->load->view("invoice", $d);
 
     }
 

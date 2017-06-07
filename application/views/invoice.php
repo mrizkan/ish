@@ -20,15 +20,12 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="card-box">
-                            <!-- <div class="panel-heading">
-                                <h4>Invoice</h4>
-                            </div> -->
                             <?php
-                            echo '<pre>';
-                            print_r($final_result);
-                            echo '</pre>';
-                            ?>
-                           <!-- -->
+/*                            echo"<pre>";
+                            print_r($d);
+                            echo"</pre>";
+                            */?>
+
                             <div class="panel-body">
                                 <div class="clearfix">
                                     <div class="pull-left">
@@ -39,11 +36,11 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-xs-12">
-                                      <?php  foreach($final_result as $row){?>
+
                                         <div class="pull-xs-left m-t-30">
                                             <address>
                                                 <strong>Ishra Auto Traders</strong><br>
-                                                101, Galles Road<br>Horethuduwa<br>
+                                                472/a, Galle Road<br>Horethuduwa<br>
                                                 Moratuwa.<br>
                                                 <abbr class="icon-phone"></abbr> +94 766 767 418
                                             </address>
@@ -67,7 +64,7 @@
                                             <table class="table m-t-30">
                                                 <thead class="bg-faded">
                                                 <tr>
-                                                    <th>#</th>
+
                                                     <th>Product Name</th>
                                                     <th>Unit Price</th>
                                                     <th>Quantity</th>
@@ -76,19 +73,18 @@
 
                                                 </tr></thead>
                                                 <tbody>
+                                                <?php for ($r = 0; $r < $final_result['a']; $r++) {?>
                                                 <tr>
 
-                                                    <td><?= $row['pid']; ?></td>
-                                                    <td>proname</td>
-                                                    <td>upprice</td>
-                                                    <td>qty</td>
-                                                    <td>Total</td>
+                                                    <td><?php echo $final_result['proname'][$r] ?></td>
+                                                    <td><?php echo $final_result['uprice'][$r] ?></td>
+                                                    <td><?php echo $final_result['qty'][$r] ?></td>
+                                                    <td><?php echo $final_result['total'][$r] ?></td>
                                                 </tr>
-
-
-
+                                                <?php } ?>
                                                 </tbody>
                                             </table>
+
                                         </div>
                                     </div>
                                 </div>
@@ -97,20 +93,22 @@
 
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-xs-6 col-md-offset-3">
-                                        <p class="text-xs-right"><b>Sub-total:</b> Rs. <?= $data2['subtotal'] ?></p>
-                                        <p class="text-xs-right">Discout:  Rs. <?= $data2['discount'] ?></p>
+                                        <!--<p class="text-xs-right"><b>Sub-total:</b> Rs. <?php /*echo $final_result['subtotal']*/?></p>-->
+                                        <p class="text-xs-right">Discout:  Rs. <?php echo $final_result['discount']?></p>
 
                                         <hr>
-                                        <h3 class="text-xs-right"> Rs. <?= $data2['subtotal'] ?></h3>
+                                        <h3 class="text-xs-right"> Rs. <?php echo $final_result['subtotal']?></h3>
                                     </div>
                                 </div>
+
                                 <hr>
                                 <div class="hidden-print">
                                     <div class="pull-xs-right">
                                         <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i class="fa fa-print"></i></a>
-                                        <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
-<?php } ?>
+                                        <a href="#" class="btn btn-primary waves-effect waves-light">Add another Bill</a>
+
                                     </div>
+
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
