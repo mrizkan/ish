@@ -40,6 +40,16 @@
 
                     <div class="col-sm-12">
                         <div class="card-box">
+                            <?php
+                            $noti=$this->session->flashdata('emsg');
+                            if(isset($noti)){
+                                ?>
+
+                                <div class="alert alert-danger" role="alert">
+                                    <?= $this->session->flashdata('emsg'); ?>
+                                </div>
+
+                            <?php }  ?>
 
                             <div class="row">
                                 <div class="col-lg-12">

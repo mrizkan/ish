@@ -20,11 +20,6 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="card-box">
-                            <?php
-/*                            echo"<pre>";
-                            print_r($d);
-                            echo"</pre>";
-                            */?>
 
                             <div class="panel-body">
                                 <div class="clearfix">
@@ -66,6 +61,7 @@
                                                 <tr>
 
                                                     <th>Product Name</th>
+                                                    <th>Description</th>
                                                     <th>Unit Price</th>
                                                     <th>Quantity</th>
 
@@ -77,6 +73,7 @@
                                                 <tr>
 
                                                     <td><?php echo $final_result['proname'][$r] ?></td>
+                                                    <td><?php echo $final_result['prodescription'][$r] ?></td>
                                                     <td><?php echo $final_result['uprice'][$r] ?></td>
                                                     <td><?php echo $final_result['qty'][$r] ?></td>
                                                     <td><?php echo $final_result['total'][$r] ?></td>

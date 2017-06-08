@@ -43,5 +43,38 @@ class insert_model extends CI_Model
 
     }
 
+    public function get_qty($pid)
+    {
+
+        $value = $this->db->query("select qty from product where pid ='$pid'");
+        return $value;
+
+    }
+
+    public function qty_sub($pid)
+    {
+
+        $value = $this->db->query("select qty from product where pid ='$pid'");
+        return $value;
+
+    }
+
+    public function qty_update($cqty, $row)
+    {
+
+        $r = $this->db->query("UPDATE product SET qty='$cqty' WHERE pid = '$row'");
+        return $r;
+
+    }
+
+    public function prodetails($des)
+    {
+
+        $details = $this->db->query("SELECT description FROM product WHERE pid = '$des'");
+        return $details;
+
+    }
+
+
 }
 ?>

@@ -132,8 +132,6 @@ class Welcome extends CI_Controller
 
     }
 
-
-
     public function salecal()
     {
         if ($this->input->post())
@@ -161,13 +159,29 @@ class Welcome extends CI_Controller
                         $pid = $entry['pid'];
                         $proname = $entry ['pname'];
 
+                    $value2 = $this->insert_model->get_qty($pid);
+
+                    foreach ($value2->result() as $row)
+                    {
+                        $l = $row->qty;
+                    }
+
+                    if ($l< $qty)
+                    {
+                        $this->session->set_flashdata('emsg', 'Reqvested <strong>'. $proname . '</strong> Quantity is Higher than Stock');
+                        $this->session->flashdata('emsg');
+
+                    }
                 }
+
+
 
                 $value = $this->insert_model->get_price($pid); ///pasing the product id to get the the price from database
 
                 foreach ($value->result() as $row)
                 {
                     $price = $row->price;
+
                 }
 
                 $total = $price * $qty; ////Total calculation
@@ -187,8 +201,8 @@ class Welcome extends CI_Controller
 
 
     public function bill_data()
-
     {
+        $des = array();
         $data['data2'] = array(
             'pid' => $this->input->post('pid[]'),
             'proname' => $this->input->post('proname[]'),
@@ -199,7 +213,8 @@ class Welcome extends CI_Controller
             'subtotal' => $this->input->post('subtotal'),
         );
 
-        foreach ($data as $entry) {
+        foreach ($data as $entry)
+        {
             $discount = $entry['discount'];
             $subtotal = $entry['subtotal'];
             $pid = $entry['pid'];
@@ -207,20 +222,40 @@ class Welcome extends CI_Controller
             $uprice = $entry['uprice'];
             $qty = $entry['qty'];
             $total = $entry['total'];
+
+
+
+                foreach ($pid as $row)
+                { //fetching the pid
+
+                    $value = $this->insert_model->qty_sub($row); ////getting the current qty level
+                        $des[] = $row;
+                    foreach ($value->result() as $row3)
+                    {
+                        $cqty = $row3->qty;
+                    }
+                    foreach ($qty as $row2)
+                    { /////fetching the qty
+                    $cqty = $cqty - $row2; ///substacting the current qty from the inserted qty
+                    $r = $this->insert_model->qty_update($cqty, $row);///update the table after deduct the qty from current qty
+                    }
+                 }
         }
+        foreach ($des as $dids){ ////fetching datas that received to the varibale (product ids from abaove method ) fetcing them to get the details
+        $details = $this->insert_model->prodetails($dids);/// getting the produtct description to show
+        foreach ($details->result() as $row4)/// fetching the details
+        {
+            $prodescription[] = $row4->description;
+        }
+    }
 
         $subtotal = $subtotal - $discount;
         $a = count($pid);//getting the array count to loop through the array
 
-        $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a"); //creating new array to pass to view
+        $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a", "prodescription", "des"); //creating new array to pass to view
 
         $this->load->view("invoice", $d);
 
     }
-
-
-
-
-
 
     }

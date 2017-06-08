@@ -39,15 +39,15 @@
                             <h4 class="page-title">Add Sales Details</h4>
                         </div>
                         <?php
-                        $noti = $this->session->flashdata('msg');
+/*                        $noti = $this->session->flashdata('msg');
                         if (isset($noti)) {
-                            ?>
+                            */?><!--
 
                             <div class="alert alert-success" role="alert">
-                                <?= $this->session->flashdata('msg'); ?>
+                                <?/*= $this->session->flashdata('msg'); */?>
                             </div>
 
-                        <?php } ?>
+                        --><?php /*} */?>
 
                         <div class="clearfix"></div>
                     </div>
