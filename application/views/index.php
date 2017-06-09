@@ -18,7 +18,7 @@
         <!--<img src="<?php /*echo base_url(); */?>images/logo.png" width="200px" height="120px">-->
         <h1>Ishra Auto Traders</h1>
 
-        <?= form_open('Welcome/pinsert'); ?>
+        <?= form_open('Welcome/login'); ?>
         <div class="form-group center-block text-center   " >
 
             <strong class="text-danger " >

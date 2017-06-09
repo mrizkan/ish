@@ -55,7 +55,7 @@
                                             <div class="col-lg-6 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputEmail1">Product Name</label>
-                                                    <input type="text" class="form-control" required="" name="pname" placeholder="Product Name" data-parsley-id="34" value="<?php echo set_value('pname'); ?>">
+                                                    <input type="text" class="form-control" required="" name="pname" placeholder="Product Name" autocomplete="off" data-parsley-id="34" value="<?php echo set_value('pname'); ?>">
 
                                                     <!--<small class="text-muted">We'll never share your email with anyone
                                                         else.
@@ -63,7 +63,7 @@
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputPassword1">Quantity</label>
-                                                    <input data-parsley-type="number" type="text" class="form-control" name="qty" required="" placeholder="Quantity" data-parsley-id="46" value="<?php echo set_value('qty'); ?>">
+                                                    <input data-parsley-type="number" type="text" class="form-control" name="qty" required="" placeholder="Quantity" autocomplete="off" data-parsley-id="46" value="<?php echo set_value('qty'); ?>">
                                                 </fieldset>
 
                                             </div>
@@ -71,14 +71,14 @@
                                             <div class="col-lg-6 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputEmail1">Rack Number</label>
-                                                    <input data-parsley-type="number" type="text" class="form-control" required="" name="rnum" placeholder="Rack Number" data-parsley-id="46" value="<?php echo set_value('rnum'); ?>">
+                                                    <input data-parsley-type="number" type="text" class="form-control" required="" name="rnum" autocomplete="off" placeholder="Rack Number" data-parsley-id="46" value="<?php echo set_value('rnum'); ?>">
                                                     <!--<small class="text-muted">We'll never share your email with anyone
                                                         else.
                                                     </small>-->
                                                 </fieldset>
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputPassword1">Price</label>
-                                                    <input data-parsley-type="number" type="text" class="form-control" required="" name="price" placeholder="Price" data-parsley-id="46" value="<?php echo set_value('price'); ?>">
+                                                    <input data-parsley-type="number" type="text" class="form-control" required="" name="price" autocomplete="off" placeholder="Price" data-parsley-id="46" value="<?php echo set_value('price'); ?>">
                                                 </fieldset>
 
 

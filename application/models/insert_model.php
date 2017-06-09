@@ -14,6 +14,12 @@ class insert_model extends CI_Model
 
     }
 
+    function fetch_udata($user,$pass)
+    {
+        $query = $this->db->query("select username, password from user where username = '$user' AND password = '$pass'")->result();
+        return $query;
+    }
+
     function  pdata()
     {
         /*$this->db->order_by('pid', 'desc');*/
@@ -75,6 +81,11 @@ class insert_model extends CI_Model
 
     }
 
+    public function update_sales($subtotal, $sales_type)
+    {
+//       $this->db->query("INSERT INTO sales 'total' VALUE '$subtotal'");
+       $this->db->query("INSERT INTO sales (total, type) VALUES ('$subtotal', '$sales_type')");
+    }
 
 }
 ?>

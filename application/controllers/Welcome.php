@@ -29,8 +29,42 @@ class Welcome extends CI_Controller
 
     public function index()
     {
+        $this->session->unset_userdata('username');
         $this->load->view('index');
     }
+
+    public function login()
+    {
+        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('password', 'password', 'required');
+
+        if ($this->form_validation->run() == FALSE){
+            $this->index();
+        }else{
+
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+
+            $data["fetch_data"] = $this->insert_model->fetch_udata($username, $password);
+
+            if( count($data["fetch_data"])>0)
+            {
+//                $this->load->view('Customer/insertview()');
+                $session_data = array(
+                    'username' => $username
+                );
+                $this->session->set_userdata($session_data);
+//                print_r($this->session->userdata->username);exit;
+
+                redirect(base_url().'Welcome/pinsert');
+                /*$this->insertview();*/
+            }
+            else
+                $this->session->set_flashdata('error', 'Invalid Username or Password');
+            $this->index();
+        }
+    }
+
 
     public function pinsert()
     {
@@ -142,8 +176,6 @@ class Welcome extends CI_Controller
             $subtotal = 0;
             $final_array_collection =array();
 
-
-
             foreach($this->input->post('pname') as $d){
 
 
@@ -250,12 +282,27 @@ class Welcome extends CI_Controller
     }
 
         $subtotal = $subtotal - $discount;
+        $sales_type = 'product';
+
+        $this->insert_model->update_sales($subtotal, $sales_type);
         $a = count($pid);//getting the array count to loop through the array
 
         $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a", "prodescription", "des"); //creating new array to pass to view
 
         $this->load->view("invoice", $d);
 
+    }
+
+    public function service()
+    {
+
+        $this->load->view("addservice");
+    }
+
+    public function service_cal()
+    {
+
+        $this->load->view("addservice");
     }
 
     }
