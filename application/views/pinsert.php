@@ -61,13 +61,7 @@
                                                         else.
                                                     </small>-->
                                                 </fieldset>
-                                                <fieldset class="form-group">
-                                                    <label for="exampleInputPassword1">Quantity</label>
-                                                    <input data-parsley-type="number" type="text" class="form-control" name="qty" required="" placeholder="Quantity" autocomplete="off" data-parsley-id="46" value="<?php echo set_value('qty'); ?>">
-                                                </fieldset>
-
                                             </div>
-
                                             <div class="col-lg-6 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputEmail1">Rack Number</label>
@@ -76,12 +70,34 @@
                                                         else.
                                                     </small>-->
                                                 </fieldset>
+                                            </div>
+
+
+                                            <div class="col-lg-3 ">
+                                                <fieldset class="form-group">
+                                                    <label for="exampleInputPassword1">Quantity</label>
+                                                    <input data-parsley-type="number" type="text" class="form-control" name="qty" required="" placeholder="Quantity" autocomplete="off" data-parsley-id="46" value="<?php echo set_value('qty'); ?>">
+                                                </fieldset>
+
+                                            </div>
+                                            <div class="col-lg-3 ">
+                                                <fieldset class="form-group">
+                                                    <label for="exampleInputPassword1">Minimum Quantity</label>
+                                                    <input data-parsley-type="number" type="text" class="form-control" name="mqty" required="" placeholder="Minumum Quantity" autocomplete="off" data-parsley-id="46" value="<?php echo set_value('mqty'); ?>">
+                                                </fieldset>
+
+                                            </div>
+                                            <div class="col-lg-3 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputPassword1">Price</label>
                                                     <input data-parsley-type="number" type="text" class="form-control" required="" name="price" autocomplete="off" placeholder="Price" data-parsley-id="46" value="<?php echo set_value('price'); ?>">
                                                 </fieldset>
-
-
+                                            </div>
+                                            <div class="col-lg-3 ">
+                                                <fieldset class="form-group">
+                                                    <label for="exampleInputPassword1">Cost</label>
+                                                    <input data-parsley-type="number" type="text" class="form-control" required="" name="cost" autocomplete="off" placeholder="cost" data-parsley-id="46" value="<?php echo set_value('cost'); ?>">
+                                                </fieldset>
                                             </div>
                                             <div class="col-lg-6 ">
                                                 <fieldset class="form-group">
