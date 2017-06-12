@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="pull-xs-right m-t-30">
                                             <p><strong>Order Date: </strong><?php echo date("d/M/Y") ?></p>
-                                            <p class="m-t-10"><strong>Order Status: </strong> <span class="label label-success">Ready</span></p>
+                                            <p class="m-t-10"><strong>Bill Number: </strong> <span class="label label-success">IAT-<?php echo $final_result['bill_id']?></span></p>
                                             <!--<p class="m-t-10"><strong>Order ID: </strong> #123456</p>-->
                                         </div>
                                     </div><!-- end col -->
@@ -102,7 +102,7 @@
                                 <div class="hidden-print">
                                     <div class="pull-xs-right">
                                         <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i class="fa fa-print"></i></a>
-                                        <a href="#" class="btn btn-primary waves-effect waves-light">Add another Bill</a>
+                                        <a href="#" class="btn btn-primary waves-effect waves-light">Add Another Bill</a>
 
                                     </div>
 

@@ -73,30 +73,30 @@
                                             </div>
 
 
-                                            <div class="col-lg-3 ">
+                                            <div class="col-lg-4 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputPassword1">Quantity</label>
                                                     <input data-parsley-type="number" type="text" class="form-control" name="qty" required="" placeholder="Quantity" autocomplete="off" data-parsley-id="46" value="<?php echo set_value('qty'); ?>">
                                                 </fieldset>
 
                                             </div>
-                                            <div class="col-lg-3 ">
+                                            <div class="col-lg-2 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputPassword1">Minimum Quantity</label>
                                                     <input data-parsley-type="number" type="text" class="form-control" name="mqty" required="" placeholder="Minumum Quantity" autocomplete="off" data-parsley-id="46" value="<?php echo set_value('mqty'); ?>">
                                                 </fieldset>
 
                                             </div>
-                                            <div class="col-lg-3 ">
+                                            <div class="col-lg-4 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputPassword1">Price</label>
                                                     <input data-parsley-type="number" type="text" class="form-control" required="" name="price" autocomplete="off" placeholder="Price" data-parsley-id="46" value="<?php echo set_value('price'); ?>">
                                                 </fieldset>
                                             </div>
-                                            <div class="col-lg-3 ">
+                                            <div class="col-lg-2 ">
                                                 <fieldset class="form-group">
                                                     <label for="exampleInputPassword1">Cost</label>
-                                                    <input data-parsley-type="number" type="text" class="form-control" required="" name="cost" autocomplete="off" placeholder="cost" data-parsley-id="46" value="<?php echo set_value('cost'); ?>">
+                                                    <input data-parsley-type="number" type="text" class="form-control" required="" name="cost" autocomplete="off" placeholder="Cost" data-parsley-id="46" value="<?php echo set_value('cost'); ?>">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6 ">
@@ -162,7 +162,7 @@
             var image_name = property.name;
 
             var image_extension = image_name.split('.').pop();
-            if(jQuery.inArray(image_extension, ['gif','png','jpg','jpeg']) == -1)
+            if(jQuery.inArray(image_extension, ['gif']) == -1)
             {
                 alert("Invalid Image File");
 

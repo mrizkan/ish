@@ -60,6 +60,7 @@
 
                                             <fieldset class='form-group'>
                                                 <label>Product Name</label>
+                                                <input type='text' class='form-control' id='bill_id'name='bill_id' hidden="hidden" value="<?= $result['bill_id']?>" autocomplete="off">
                                             </fieldset>
                                         </div>
 

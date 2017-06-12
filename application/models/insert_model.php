@@ -49,6 +49,12 @@ class insert_model extends CI_Model
 
     }
 
+    public function sid()
+    {
+        $b = $this->db->query("SELECT MAX(sid) as last FROM sales")->result();
+        return $b;
+    }
+
     public function get_qty($pid)
     {
 
@@ -81,10 +87,25 @@ class insert_model extends CI_Model
 
     }
 
-    public function update_sales($subtotal, $sales_type)
+    public function update_sales($subtotal, $sales_type, $bid)
     {
 //       $this->db->query("INSERT INTO sales 'total' VALUE '$subtotal'");
-       $this->db->query("INSERT INTO sales (total, type) VALUES ('$subtotal', '$sales_type')");
+       $this->db->query("INSERT INTO sales (bid, total, type) VALUES ('$bid', '$subtotal', '$sales_type')");
+    }
+
+
+    /////////// report related codes
+
+    public  function  dreport()
+    {
+        $query = $this->db->get("sales");
+        return $query;
+    }
+
+    public  function  dtotal()
+    {
+        $query = $this->db->get("sales");
+        return $query;
     }
 
 }

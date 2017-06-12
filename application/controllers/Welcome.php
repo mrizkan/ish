@@ -85,7 +85,9 @@ class Welcome extends CI_Controller
                 'pname' => $this->input->post('pname'),
                 'description' => $this->input->post('description'),
                 'qty' => $this->input->post('qty'),
+                'mqty' => $this->input->post('mqty'),
                 'price' => $this->input->post('price'),
+                'cost' => $this->input->post('cost'),
                 'date' => date('Y/m/d'),
                 'rnum' => $this->input->post('rnum'),
                 'Image' => $this->input->post('Image'),
@@ -104,7 +106,7 @@ class Welcome extends CI_Controller
 
     function upload_pro_image(){
         $config['upload_path']          = './upload/';
-        $config['allowed_types']        = 'gif|jpg|png';
+        $config['allowed_types']        = 'jpeg|jpg|png';
         $config['max_size']             = 100000;
         $config['file_name']             = date('Ymdhms');
 
@@ -148,8 +150,11 @@ class Welcome extends CI_Controller
             'pname' => $this->input->post('pname'),
             'description' => $this->input->post('description'),
             'qty' => $this->input->post('qty'),
+            'mqty' => $this->input->post('mqty'),
             'price' => $this->input->post('price'),
+            'cost' => $this->input->post('cost'),
             'rnum' => $this->input->post('rnum'),
+            'Image' => $this->input->post('Image'),
         );
 
         $this->insert_model->form_update($data3, $id);
@@ -174,6 +179,7 @@ class Welcome extends CI_Controller
             $i = 0;
             $data = array();
             $subtotal = 0;
+            $bill_id = 0;
             $final_array_collection =array();
 
             foreach($this->input->post('pname') as $d){
@@ -213,8 +219,11 @@ class Welcome extends CI_Controller
                 foreach ($value->result() as $row)
                 {
                     $price = $row->price;
-
                 }
+
+                $b = $this->insert_model->sid();
+
+                $bill_id= $b[0]->last+1;
 
                 $total = $price * $qty; ////Total calculation
 
@@ -223,7 +232,8 @@ class Welcome extends CI_Controller
                 $i++;
             }
 
-            $result['result'] = compact("final_array_collection", "i", "subtotal");
+
+            $result['result'] = compact("final_array_collection", "i", "subtotal", "bill_id");
 
             $this->load->view("bill", $result);
         }
@@ -243,6 +253,7 @@ class Welcome extends CI_Controller
             'total' => $this->input->post('total[]'),
             'discount' => $this->input->post('discount'),
             'subtotal' => $this->input->post('subtotal'),
+            'bill_id' => $this->input->post('bill_id'),
         );
 
         foreach ($data as $entry)
@@ -254,8 +265,7 @@ class Welcome extends CI_Controller
             $uprice = $entry['uprice'];
             $qty = $entry['qty'];
             $total = $entry['total'];
-
-
+            $bill_id = $entry['bill_id'];
 
                 foreach ($pid as $row)
                 { //fetching the pid
@@ -283,11 +293,12 @@ class Welcome extends CI_Controller
 
         $subtotal = $subtotal - $discount;
         $sales_type = 'product';
+        $bid = 'IAT-'.$bill_id;
 
-        $this->insert_model->update_sales($subtotal, $sales_type);
+        $this->insert_model->update_sales($subtotal, $sales_type, $bid);
         $a = count($pid);//getting the array count to loop through the array
 
-        $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a", "prodescription", "des"); //creating new array to pass to view
+        $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a", "prodescription", "des", "bill_id"); //creating new array to pass to view
 
         $this->load->view("invoice", $d);
 
@@ -303,6 +314,15 @@ class Welcome extends CI_Controller
     {
 
         $this->load->view("addservice");
+    }
+
+    ///report related codes
+
+    public function dreport()
+    {
+
+        $data["rdata"] = $this->insert_model->dreport();
+        $this->load->view("reports/daily", $data);
     }
 
     }

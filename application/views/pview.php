@@ -1,5 +1,7 @@
 <?php include('inc/header.php')?>
 <link href="<?= base_url() ?>plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+<script src="<?= base_url() ?>js/lightgallery.js"></script>
+<link href="<?= base_url() ?>css/lightgallery.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -46,6 +48,7 @@
     <th><i class="fa fa-camera"></i></th>
     <th>Description</th>
     <th>Quantity</th>
+    <th>Cost</th>
     <th>Price</th>
     <th>Options</th>
 </tr>
@@ -63,6 +66,7 @@ if ($pdata->num_rows() > 0) {
             <td><a href="<?= base_url() . 'upload/' . $row->Image ?>" target="_blank"><i class="fa fa-camera"></i></a></td>
             <td><?php echo $row->description; ?></td>
             <td><?php echo $row->qty; ?></td>
+            <td><?php echo $row->cost; ?></td>
             <td>Rs. <?php echo $row->price; ?></td>
 
             <td style="float: left">
