@@ -4,21 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Welcome extends CI_Controller
 {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     *        http://example.com/index.php/welcome
-     *    - or -
-     *        http://example.com/index.php/welcome/index
-     *    - or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see https://codeigniter.com/user_guide/general/urls.html
-     */
 
     function __construct()
     {
@@ -294,8 +279,10 @@ class Welcome extends CI_Controller
         $subtotal = $subtotal - $discount;
         $sales_type = 'product';
         $bid = 'IAT-'.$bill_id;
+        $date = date('Y-m-j');
 
-        $this->insert_model->update_sales($subtotal, $sales_type, $bid);
+
+        $this->insert_model->update_sales($subtotal, $sales_type, $bid, $date);
         $a = count($pid);//getting the array count to loop through the array
 
         $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a", "prodescription", "des", "bill_id"); //creating new array to pass to view
@@ -323,6 +310,27 @@ class Welcome extends CI_Controller
 
         $data["rdata"] = $this->insert_model->dreport();
         $this->load->view("reports/daily", $data);
+    }
+
+    public function total_sales()
+    {
+
+        $start = $this->input->post('start');
+        $end = $this->input->post('end');
+
+        $data[] = $this->insert_model->sales_report($start, $end);
+
+        echo'<pre>';
+        print_r($data);
+        echo'</pre>';
+        exit;
+        if($data[] = 0){
+            echo"NO DATA";
+        }
+        else{
+            echo"HAVE DATA";
+        }
+
     }
 
     }

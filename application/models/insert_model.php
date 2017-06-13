@@ -87,10 +87,10 @@ class insert_model extends CI_Model
 
     }
 
-    public function update_sales($subtotal, $sales_type, $bid)
+    public function update_sales($subtotal, $sales_type, $bid, $date)
     {
 //       $this->db->query("INSERT INTO sales 'total' VALUE '$subtotal'");
-       $this->db->query("INSERT INTO sales (bid, total, type) VALUES ('$bid', '$subtotal', '$sales_type')");
+       $this->db->query("INSERT INTO sales (bid, total, type, date) VALUES ('$bid', '$subtotal', '$sales_type', '$date')");
     }
 
 
@@ -98,7 +98,7 @@ class insert_model extends CI_Model
 
     public  function  dreport()
     {
-        $query = $this->db->get("sales");
+        $query = $this->db->query("SELECT * FROM sales");
         return $query;
     }
 
@@ -106,6 +106,12 @@ class insert_model extends CI_Model
     {
         $query = $this->db->get("sales");
         return $query;
+    }
+
+    public  function  sales_report($start, $end)
+    {
+        $data = $this->db->query("SELECT SUM(total) FROM sales WHERE date BETWEEN '$start' AND '$end';");
+        return $data;
     }
 
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-    <meta name="Rizkan" content="Coderthemes">
+    <meta name="description" content="Ishra Auto Traders System">
+    <meta name="Rizkan" content="Ishra Auto Traders System">
 
     <!-- App Favicon -->
     <link rel="shortcut icon" href="<?= base_url() ?>images/aa.ico">

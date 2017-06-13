@@ -1,7 +1,10 @@
 <?php $this->load->view('inc/header'); ?>
 <link href="<?= base_url() ?>plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
-<script src="<?= base_url() ?>js/lightgallery.js"></script>
-<link href="<?= base_url() ?>css/lightgallery.css" rel="stylesheet" type="text/css" />
+<link href="<?= base_url() ?>plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+<link href="<?= base_url() ?>plugins/mjolnic-bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="<?= base_url() ?>plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<link href="<?= base_url() ?>plugins/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet">
+<link href="<?= base_url() ?>plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
 
 
@@ -23,11 +26,44 @@
         <!-- Start content -->
         <div class="content">
             <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box table-responsive">
+                            <h4 class="m-t-0 header-title"><b>Sales Details</b></h4>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <?= form_open('Welcome/total_sales'); ?>
+                                        <div class="form-group">
+                                            <label>Date Range</label>
+                                            <div>
+                                                <div class="input-daterange input-group" id="date-range">
+                                                    <input type="text" class="form-control datepicker" name="start">
+                                                    <span class="input-group-addon bg-custom b-0">to</span>
+                                                    <input type="text" class="form-control datepicker" name="end">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                </div>
+                                <div class="col-lg-4">
+
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 8%">Show</button>
+                                </div>
+                                <?php echo form_close(); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box table-responsive">
-                            <h4 class="m-t-0 header-title"><b>Daily Sales Details</b></h4>
+                            <h4 class="m-t-0 header-title"><b>Bill Details</b></h4>
+
+
 
                             <table id="datatable-buttons" class="table table-striped table-bordered">
                                 <thead>
@@ -71,28 +107,28 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-lg-12 ">
-                                    <h4>Total Sales for the day :</h4>
-                                    </div>
-                                </div>
-                            </div>
                     </div>
                 </div> <!-- end row -->
 
 
-               <?php $this->load->view('inc/footer'); ?>
 
+                <?php $this->load->view('inc/footer'); ?>
 
+                <script src="<?= base_url() ?>plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+                <script src="<?= base_url() ?>plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+                <script src="<?= base_url() ?>plugins/moment/moment.js"></script>
                 <script type="text/javascript">
+
+                    $('.datepicker').datepicker({
+                        format: 'yyyy-mm-dd'
+                    });
+
                     $(document).ready(function() {
                         $('#datatable').DataTable();
 
                         //Buttons examples
                         var table = $('#datatable-buttons').DataTable({
-                            lengthChange: false,
-                            buttons: ['copy', 'excel', 'pdf', 'colvis']
+                            lengthChange: false
                         });
 
                         table.buttons().container()
