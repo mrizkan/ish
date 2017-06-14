@@ -110,7 +110,7 @@ class insert_model extends CI_Model
 
     public  function  sales_report($start, $end)
     {
-        $data = $this->db->query("SELECT SUM(total) FROM sales WHERE date BETWEEN '$start' AND '$end';");
+        $data = $this->db->query("SELECT SUM(total) as total FROM sales WHERE date BETWEEN '$start' AND '$end'")->result();
         return $data;
     }
 

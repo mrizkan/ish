@@ -318,17 +318,19 @@ class Welcome extends CI_Controller
         $start = $this->input->post('start');
         $end = $this->input->post('end');
 
-        $data[] = $this->insert_model->sales_report($start, $end);
+        $data['total'] = $this->insert_model->sales_report($start, $end);
 
-        echo'<pre>';
-        print_r($data);
-        echo'</pre>';
-        exit;
-        if($data[] = 0){
-            echo"NO DATA";
+        if($data['total'][0]->total != null){
+            $b = $data['total'][0]->total;
+            $data['data2'] = array('total' => $b);
+
+            $this->load->view("reports/day_sales", $data);
         }
         else{
-            echo"HAVE DATA";
+            $b ="0";
+            $data['data2'] = array('total' => $b);
+            $this->load->view("reports/day_sales", $data);
+
         }
 
     }
