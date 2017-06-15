@@ -281,8 +281,23 @@ class Welcome extends CI_Controller
         $bid = 'IAT-'.$bill_id;
         $date = date('Y-m-j');
 
+        $this->insert_model->update_sales($subtotal, $sales_type, $bid, $date); ////inserting data to sales table
 
-        $this->insert_model->update_sales($subtotal, $sales_type, $bid, $date);
+
+        $sales_data = array();
+        for ($i = 0; $i < count($data['data2']['pid']); $i++) {
+            $sales_data[] = [
+                /*'pid'     => $data['data2']['pid'][$i],*/
+                'pname' => $data['data2']['proname'][$i],
+                'qty' => $data['data2']['qty'][$i],
+                'uprice' => $data['data2']['uprice'][$i],
+                'total' => $data['data2']['total'][$i],
+                'sid' => $bill_id
+            ];
+        }
+
+        $this->db->insert_batch('sdetails', $sales_data);
+
         $a = count($pid);//getting the array count to loop through the array
 
         $d['final_result'] = compact("pid", "proname", "uprice", "qty", "total", "discount", "subtotal", "a", "prodescription", "des", "bill_id"); //creating new array to pass to view

@@ -87,10 +87,16 @@ class insert_model extends CI_Model
 
     }
 
-    public function update_sales($subtotal, $sales_type, $bid, $date)
+    public function update_sales($subtotal, $sales_type, $bid, $date) ////inserting datas to sales table
     {
 //       $this->db->query("INSERT INTO sales 'total' VALUE '$subtotal'");
        $this->db->query("INSERT INTO sales (bid, total, type, date) VALUES ('$bid', '$subtotal', '$sales_type', '$date')");
+    }
+
+    public function update_sdetails($bill_id, $proname, $qty, $uprice, $total) ////inserting datas to sales details table
+    {
+//       $this->db->query("INSERT INTO sales 'total' VALUE '$subtotal'");
+        $this->db->query("INSERT INTO sdetails (sid, pname, qty, price, total) VALUES ('$bill_id', '$proname', '$qty', '$uprice', '$total'");
     }
 
 
