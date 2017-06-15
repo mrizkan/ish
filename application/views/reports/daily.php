@@ -85,7 +85,7 @@
                                             <td><?php echo $row->bid; ?></td>
                                             <td><?php echo $row->date; ?></td>
                                             <td><?php echo $row->total; ?></td>
-                                            <td><a href="">
+                                            <td><a href="<?= base_url() . 'Welcome/pedit/' . $row->sid ?>">
                                                     <button type="button" class="btn btn-warning-outline waves-effect waves-light">View</button>
                                                 </a></td>
                                         </tr>
