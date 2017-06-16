@@ -29,8 +29,9 @@ class Welcome extends CI_Controller
 
             $username = $this->input->post('username');
             $password = $this->input->post('password');
+            $converted = md5($password);
 
-            $data["fetch_data"] = $this->insert_model->fetch_udata($username, $password);
+            $data["fetch_data"] = $this->insert_model->fetch_udata($username, $converted);
 
             if( count($data["fetch_data"])>0)
             {

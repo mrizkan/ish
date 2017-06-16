@@ -33,9 +33,16 @@
                                                     (Rs.)</strong></h6>
                                             <h2 class="text-success text-uppercase m-b-15 m-t-10"
                                                 data-plugin="counterup"><?php echo $data2['total']; ?></h2>
+                                            <h5>
+                                                <?php $b = 'admin';
+                                                echo md5($b);
+                                                ?>
+
+                                            </h5>
 
                                         </div>
                                     </div>
+
                                 </div>
 
                             </div>
@@ -43,7 +50,7 @@
                 </div>
                 </div>
 
-                <!-- <div class="row">
+                <!--<div class="row">
                     <div class="col-sm-12">
                         <div class="card-box table-responsive">
                             <h4 class="m-t-0 header-title"><b>Bill Details</b></h4>
@@ -63,15 +70,15 @@
 
                                 <tbody>
                                 <?php
-                /*/*                                if ($rdata->num_rows() > 0) {
+/*                              if ($rdata->num_rows() > 0) {
                                                     foreach ($rdata->result() as $row) {
                                                         */?>
                                         <tr>
-                                            <td><?php /*/*echo $row->bid; */ ?></td>
-                                            <td><?php /*/*echo $row->date; */ ?></td>
-                                            <td><?php /*/*echo $row->total; */ ?></td>
-                                            <td><?php /*/*echo $row->total; */ ?></td>
-                                            <td><?php /*/*echo $row->total; */ ?></td>
+                                            <td><?php /*echo $row->bid;  */?></td>
+                                            <td><?php /*echo $row->date;  */?></td>
+                                            <td><?php /*echo $row->total;  */?></td>
+                                            <td><?php /*echo $row->total;  */?></td>
+                                            <td><?php /*echo $row->total;  */?></td>
                                             <td><a href="">
                                                     <button type="button" class="btn btn-warning-outline waves-effect waves-light">View</button>
                                                 </a></td>
@@ -79,7 +86,7 @@
 
 
                                     <?php
-                /*/*                                    }
+/*                                            }
                                                 } else {
                                                     */?>
                                     <tr>
@@ -87,7 +94,7 @@
                                     </tr>
 
                                 <?php
-                /*/*
+/*
                                                 }
                                                 */?>
 
@@ -95,7 +102,7 @@
                             </table>
                         </div>
                     </div>
-                </div> <!-- end row-->
+                </div>--> <!-- end row-->
 
                 <script src="<?= base_url() ?>plugins/waypoints/lib/jquery.waypoints.js"></script>
                 <script src="<?= base_url() ?>plugins/counterup/jquery.counterup.min.js"></script>
