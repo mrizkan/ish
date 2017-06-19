@@ -120,5 +120,11 @@ class insert_model extends CI_Model
         return $data;
     }
 
+    public function  inventory_data()
+    {
+        $query = $this->db->query("select pname, qty, mqty, rnum from product where qty <= mqty");
+        return $query;
+    }
+
 }
 ?>

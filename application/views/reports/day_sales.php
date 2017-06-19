@@ -34,9 +34,7 @@
                                             <h2 class="text-success text-uppercase m-b-15 m-t-10"
                                                 data-plugin="counterup"><?php echo $data2['total']; ?></h2>
                                             <h5>
-                                                <?php $b = 'admin';
-                                                echo md5($b);
-                                                ?>
+
 
                                             </h5>
 

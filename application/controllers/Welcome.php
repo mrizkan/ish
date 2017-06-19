@@ -351,4 +351,11 @@ class Welcome extends CI_Controller
 
     }
 
+    public function inventory()
+    {
+
+        $data["pdata"] = $this->insert_model->inventory_data();
+        $this->load->view("reports/inventry", $data);
     }
+
+}
