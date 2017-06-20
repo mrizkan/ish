@@ -1,10 +1,6 @@
 <?php include('inc/header.php')?>
-<link href="<?= base_url() ?>plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
-<script src="<?= base_url() ?>js/lightgallery.js"></script>
-<link href="<?= base_url() ?>css/lightgallery.css" rel="stylesheet" type="text/css" />
-
-
-
+<link rel="stylesheet" href="<?= base_url() ?>css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8"/>
+<script src="<?= base_url() ?>js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 
 <body class="fixed-left">
 
@@ -49,8 +45,8 @@
     <th>Description</th>
     <th>Quantity</th>
     <th>Cost</th>
-    <th>Price</th>
-    <th>Options</th>
+    <th width="9%">Price</th>
+    <th width="3%">Options</th>
 </tr>
 </thead>
 
@@ -63,7 +59,8 @@ if ($pdata->num_rows() > 0) {
         <tr>
             <td><?php echo $row->rnum; ?></td>
             <td><?php echo $row->pname; ?></td>
-            <td><a href="<?= base_url() . 'upload/' . $row->Image ?>" target="_blank"><i class="fa fa-camera"></i></a></td>
+            <td><a href="<?= base_url() . 'upload/' . $row->Image ?>" rel="prettyPhoto"><i class="fa fa-camera"></i></a>
+            </td>
             <td><?php echo $row->description; ?></td>
             <td><?php echo $row->qty; ?></td>
             <td><?php echo $row->cost; ?></td>
@@ -101,9 +98,13 @@ if ($pdata->num_rows() > 0) {
 </div>
 </div> <!-- end row -->
 
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function () {
+                $("a[rel^='prettyPhoto']").prettyPhoto();
+            });
+        </script>
 
-
-<?php include ('inc/footer.php')?>
+        <?php include ('inc/footer.php')?>
 
         <script type="text/javascript">
             $(document).ready(function() {

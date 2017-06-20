@@ -14,7 +14,7 @@ class insert_model extends CI_Model
 
     }
 
-    function fetch_udata($user,$pass)
+    function fetch_udata($user, $pass)
     {
         $query = $this->db->query("select username, password from user where username = '$user' AND password = '$pass'")->result();
         return $query;
@@ -35,16 +35,16 @@ class insert_model extends CI_Model
 
     function form_update($data3, $id)
     {
-        $data['msg']=NULL;
+        $data['msg'] = NULL;
 
-        $result_id=$this->db->update('product', $data3, "pid=$id");
+        $result_id = $this->db->update('product', $data3, "pid=$id");
 
     }
 
     public function get_price($pid)
     {
 
-       $value = $this->db->query("select price from product where pid ='$pid'");
+        $value = $this->db->query("select price from product where pid ='$pid'");
         return $value;
 
     }
@@ -90,7 +90,7 @@ class insert_model extends CI_Model
     public function update_sales($subtotal, $sales_type, $bid, $date) ////inserting datas to sales table
     {
 //       $this->db->query("INSERT INTO sales 'total' VALUE '$subtotal'");
-       $this->db->query("INSERT INTO sales (bid, total, type, date) VALUES ('$bid', '$subtotal', '$sales_type', '$date')");
+        $this->db->query("INSERT INTO sales (bid, total, type, date) VALUES ('$bid', '$subtotal', '$sales_type', '$date')");
     }
 
     public function update_sdetails($bill_id, $proname, $qty, $uprice, $total) ////inserting datas to sales details table
@@ -102,19 +102,19 @@ class insert_model extends CI_Model
 
     /////////// report related codes
 
-    public  function  dreport()
+    public function  dreport()
     {
         $query = $this->db->query("SELECT * FROM sales");
         return $query;
     }
 
-    public  function  dtotal()
+    public function  dtotal()
     {
         $query = $this->db->get("sales");
         return $query;
     }
 
-    public  function  sales_report($start, $end)
+    public function  sales_report($start, $end)
     {
         $data = $this->db->query("SELECT SUM(total) as total FROM sales WHERE date BETWEEN '$start' AND '$end'")->result();
         return $data;
@@ -122,9 +122,10 @@ class insert_model extends CI_Model
 
     public function  inventory_data()
     {
-        $query = $this->db->query("select pname, qty, mqty, rnum from product where qty <= mqty");
+        $query = $this->db->query("select pname, qty, mqty, rnum, Image from product where qty <= mqty");
         return $query;
     }
 
 }
+
 ?>

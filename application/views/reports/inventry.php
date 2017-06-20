@@ -1,7 +1,7 @@
 <?php $this->load->view('inc/header'); ?>
-<link href="<?= base_url() ?>plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css"/>
-<script src="<?= base_url() ?>js/lightgallery.js"></script>
-<link href="<?= base_url() ?>css/lightgallery.css" rel="stylesheet" type="text/css"/>
+<script src="<?= base_url() ?>js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="<?= base_url() ?>css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8"/>
+<script src="<?= base_url() ?>js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 
 
 <body class="fixed-left">
@@ -35,6 +35,7 @@
                                     <th>Rack Number</th>
                                     <th>Current Quantity</th>
                                     <th>Minimum Quantity</th>
+                                    <th><i class="fa fa-camera"></i></th>
 
 
                                 </tr>
@@ -51,6 +52,8 @@
                                             <td><?php echo $row->rnum; ?></td>
                                             <td><?php echo $row->qty; ?></td>
                                             <td><?php echo $row->mqty; ?></td>
+                                            <td><a href="<?= base_url() . 'upload/' . $row->Image ?>" rel="prettyPhoto"><i
+                                                        class="fa fa-camera"></i></a></td>
 
                                         </tr>
 
@@ -74,6 +77,11 @@
                     </div>
                 </div>
                 <!-- end row -->
+                <script type="text/javascript" charset="utf-8">
+                    $(document).ready(function () {
+                        $("a[rel^='prettyPhoto']").prettyPhoto();
+                    });
+                </script>
 
 
 
