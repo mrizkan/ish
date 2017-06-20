@@ -18,7 +18,7 @@
                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-sellsy"></i> <span> Sale </span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled">
                     <li><a href="<?php echo base_url(); ?>Welcome/addsale"><i class="fa fa-money"></i>Product Sales</a></li>
-                    <li><a href="<?php echo base_url(); ?>Welcome/service"><i class="fa fa-wrench"></i>Service Sales</a></li>
+                    <!-- <li><a href="<?php /*echo base_url(); */?>Welcome/service"><i class="fa fa-wrench"></i>Service Sales</a></li>-->
 
                 </ul>
             </li>
@@ -27,15 +27,15 @@
                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-bars"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled">
                     <li><a href="<?php echo base_url(); ?>Welcome/dreport"> <i class="fa fa-flag-checkered"></i>Bill and Sales Details</a></li>
-                    <li><a href="abc.html"><i class="fa fa-flag"></i>Item Purchase</a></li>
+                    <!--<li><a href="abc.html"><i class="fa fa-flag"></i>Item Purchase</a></li>-->
                     <li><a href="<?php echo base_url(); ?>Welcome/inventory"> <i class="fa fa-bug"></i>Inventory</a>
                     </li>
                 </ul>
             </li>
 
-            <li class="has_sub">
-                <a href="<?php echo base_url(); ?>Welcome/image" class="waves-effect"><i class="fa fa-plug"></i><span> Developer </span> </a>
-            </li>
+            <!--<li class="has_sub">
+                <a href="<?php /*echo base_url(); */?>Welcome/image" class="waves-effect"><i class="fa fa-plug"></i><span> Developer </span> </a>
+            </li>-->
 
 
         </ul>
