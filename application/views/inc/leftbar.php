@@ -29,9 +29,7 @@
                     <li><a href="<?php echo base_url(); ?>Welcome/dreport"> <i class="fa fa-flag-checkered"></i>Bill and Sales Details</a></li>
                     <!--<li><a href="abc.html"><i class="fa fa-flag"></i>Item Purchase</a></li>-->
                     <li><a href="<?php echo base_url(); ?>Welcome/inventory"> <i class="fa fa-bug"></i>Inventory</a>
-                    <li><a href="<?php echo base_url(); ?>Welcome/total_invest"> <i class="fa fa-jpy"></i>Total
-                            Investment</a>
-                    </li>
+
                 </ul>
             </li>
 

@@ -18,31 +18,39 @@
         <div class="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <div class="card-box table-responsive">
-                            <!--<h4 class="m-t-0 header-title"><b>Sales Total</b></h4>-->
+                            <h4 class="text-warning">Total Sales Between <b><?php echo $data2['sdate']; ?>
+                                    - <?php echo $data2['edate']; ?></b></h4>
                             <div class="row">
-                                <div class="col-lg-12">
+                                <div class="col-lg-6">
 
 
                                     <!--<h4>Total Sales for the day is : Rs.  <?php /*echo $data2['total']; */ ?></h4>-->
-                                    <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-3">
                                         <div class="card-box tilebox-one">
                                             <i class="icon-rocket pull-xs-right text-muted"></i>
                                             <h6 class="text-primary text-uppercase m-b-15 m-t-10"><strong>Total sales
                                                     (Rs.)</strong></h6>
                                             <h2 class="text-success text-uppercase m-b-15 m-t-10"
                                                 data-plugin="counterup"><?php echo $data2['total']; ?></h2>
-                                            <h5>
-
-
-                                            </h5>
 
                                         </div>
                                     </div>
-
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-3">
+                                        <div class="card-box tilebox-one">
+                                            <i class="icon-layers pull-xs-right text-muted"></i>
+                                            <h6 class="text-primary text-uppercase m-b-15 m-t-10"><strong>Total
+                                                    Investment
+                                                    (Rs.)</strong></h6>
+                                            <h2 class="text-pink text-uppercase m-b-15 m-t-10"
+                                                data-plugin="counterup"><?php echo $data2['total_investment']; ?></h2>
 
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                     </div>
                 </div>

@@ -343,9 +343,32 @@ class Welcome extends CI_Controller
 
         $data['total'] = $this->insert_model->sales_report($start, $end);
 
+        //////////total investment calculation///////////////////////////////////////
+        $total_invested = 0;
+
+        $data["qty_cost"] = $this->insert_model->total_invest();
+
+        foreach ($data['qty_cost']->result() as $row) {
+
+            $qty = $row->qty;
+
+            $cost = $row->cost;
+
+            $total_invested = $total_invested + ($qty * $cost);
+        }
+
+
+        /// end of calculatio//////////////////////////////////
+
         if($data['total'][0]->total != null){
             $b = $data['total'][0]->total;
-            $data['data2'] = array('total' => $b);
+            $data['data2'] = array(
+                'total' => $b,
+                'total_investment' => $total_invested,
+                'sdate' => $start,
+                'edate' => $end
+            );
+
 
             $this->load->view("reports/day_sales", $data);
         }
@@ -365,24 +388,5 @@ class Welcome extends CI_Controller
         $this->load->view("reports/inventry", $data);
     }
 
-    public function total_invest()
-    {
-        $total_invested = 0;
-
-        $data["qty_cost"] = $this->insert_model->total_invest();
-
-        foreach ($data['qty_cost']->result() as $row) {
-
-            $qty = $row->qty;
-
-            $cost = $row->cost;
-
-            $total_invested = $total_invested + ($qty * $cost);
-
-        }
-
-        $data['data2'] = array('total' => $total_invested);
-        $this->load->view("reports/investment", $data);
-    }
 
 }
