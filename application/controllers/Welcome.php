@@ -328,6 +328,13 @@ class Welcome extends CI_Controller
         $this->load->view("reports/daily", $data);
     }
 
+    public function bid_details($sid)
+    {
+
+        $data["pdata"] = $this->insert_model->bid_details($sid);
+        $this->load->view("reports/bid_details", $data);
+    }
+
     public function total_sales()
     {
 
@@ -356,6 +363,26 @@ class Welcome extends CI_Controller
 
         $data["pdata"] = $this->insert_model->inventory_data();
         $this->load->view("reports/inventry", $data);
+    }
+
+    public function total_invest()
+    {
+        $total_invested = 0;
+
+        $data["qty_cost"] = $this->insert_model->total_invest();
+
+        foreach ($data['qty_cost']->result() as $row) {
+
+            $qty = $row->qty;
+
+            $cost = $row->cost;
+
+            $total_invested = $total_invested + ($qty * $cost);
+
+        }
+
+        $data['data2'] = array('total' => $total_invested);
+        $this->load->view("reports/investment", $data);
     }
 
 }

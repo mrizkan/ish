@@ -108,6 +108,12 @@ class insert_model extends CI_Model
         return $query;
     }
 
+    public function bid_details($sid)
+    {
+        $query = $this->db->query("SELECT * FROM sdetails WHERE sid = '$sid'");
+        return $query;
+    }
+
     public function  dtotal()
     {
         $query = $this->db->get("sales");
@@ -123,6 +129,12 @@ class insert_model extends CI_Model
     public function  inventory_data()
     {
         $query = $this->db->query("select pname, qty, mqty, rnum, Image from product where qty <= mqty");
+        return $query;
+    }
+
+    public function total_invest()
+    {
+        $query = $this->db->query("select cost, qty FROM product");
         return $query;
     }
 
