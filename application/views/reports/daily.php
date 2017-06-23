@@ -31,8 +31,8 @@
                         <div class="card-box table-responsive">
                             <h4 class="m-t-0 header-title"><b>Sales Details</b></h4>
                             <div class="row">
-                                <div class="col-lg-8">
-                                    <?= form_open('Welcome/total_sales'); ?>
+                                <div class="col-lg-6">
+                                <?= form_open('Welcome/total_sales'); ?>
                                         <div class="form-group">
                                             <label>Date Range</label>
                                             <div>
@@ -48,11 +48,25 @@
 
 
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-1">
 
-                                    <button type="submit" class="btn btn-primary" style="margin-top: 8%">Show</button>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 43%">Show</button>
                                 </div>
                                 <?php echo form_close(); ?>
+                                <div class="col-lg-5">
+                                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-3">
+                                        <div class="card-box tilebox-one">
+                                            <i class="icon-layers pull-xs-right text-muted"></i>
+                                            <h6 class="text-primary text-uppercase m-b-15 m-t-10"><strong>Total
+                                                    Investment
+                                                    (Rs.)</strong></h6>
+
+                                            <h2 class="text-pink text-uppercase m-b-15 m-t-10"
+                                                data-plugin="counterup"> <?php echo array_sum($qty_cost); ?></h2>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,8 +92,8 @@
 
                                 <tbody>
                                 <?php
-                                if ($rdata->num_rows() > 0) {
-                                    foreach ($rdata->result() as $row) {
+                                if (count($rdata) > 0) {
+                                    foreach ($rdata as $row) {
                                         ?>
                                         <tr>
                                             <td><?php echo $row->bid; ?></td>
@@ -110,7 +124,8 @@
                     </div>
                 </div> <!-- end row -->
 
-
+                <script src="<?= base_url() ?>plugins/waypoints/lib/jquery.waypoints.js"></script>
+                <script src="<?= base_url() ?>plugins/counterup/jquery.counterup.min.js"></script>
 
                 <?php $this->load->view('inc/footer'); ?>
 

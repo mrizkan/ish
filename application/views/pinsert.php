@@ -180,7 +180,7 @@
                 var image_name = property.name;
 
                 var image_extension = image_name.split('.').pop();
-                if (jQuery.inArray(image_extension, ['psd', 'exe']) == -1) {
+                if (jQuery.inArray(image_extension, ['jpg', 'jpeg', 'png']) == -1) {
                     alert("Invalid Image File");
 
                 }

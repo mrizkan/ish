@@ -20,8 +20,13 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box table-responsive">
-                            <h4 class="text-warning">Total Sales Between <b><?php echo $data2['sdate']; ?>
-                                    - <?php echo $data2['edate']; ?></b></h4>
+                            <h4 class="text-warning">Total Sales Between
+                                <i>
+                                    <?php echo $data2['sdate']; ?>
+                                    - <?php echo $data2['edate']; ?>
+                                </i>
+                            </h4>
+
                             <div class="row">
                                 <div class="col-lg-6">
 
@@ -38,19 +43,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="col-xs-6 col-md-6 col-lg-6 col-xl-3">
-                                        <div class="card-box tilebox-one">
-                                            <i class="icon-layers pull-xs-right text-muted"></i>
-                                            <h6 class="text-primary text-uppercase m-b-15 m-t-10"><strong>Total
-                                                    Investment
-                                                    (Rs.)</strong></h6>
-                                            <h2 class="text-pink text-uppercase m-b-15 m-t-10"
-                                                data-plugin="counterup"><?php echo $data2['total_investment']; ?></h2>
 
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                     </div>
                 </div>

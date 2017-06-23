@@ -104,7 +104,7 @@ class insert_model extends CI_Model
 
     public function  dreport()
     {
-        $query = $this->db->query("SELECT * FROM sales");
+        $query = $this->db->query("SELECT * FROM sales")->result();
         return $query;
     }
 
@@ -134,7 +134,7 @@ class insert_model extends CI_Model
 
     public function total_invest()
     {
-        $query = $this->db->query("select cost, qty FROM product");
+        $query = $this->db->query("select cost, qty FROM product")->result();
         return $query;
     }
 
