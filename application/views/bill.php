@@ -175,6 +175,20 @@
                                         </div>
                                         </div>
 
+                                    <?php
+                                    if (!isset($noti)) {
+
+                                        echo "<div class='button-list'>
+                                <button type='submit' class='btn btn-primary' style='float: right'>Proceed to Bill
+                                </button>
+                                <?php echo form_close(); ?>
+                            </div>";
+                                    } else {
+
+                                        echo "<div class='button-list'> <a href='addsale'
+                            class='btn btn-danger btn-rounded waves-effect waves-light' style='float: left'>Go Back</a></div>";
+                                    }
+                                    ?>
 
                                 </div>
                                 <!-- end col -->
@@ -182,20 +196,7 @@
                             </div>
                             <!-- end row -->
 
-                            <?php
-                            if (!isset($noti)) {
 
-                                echo "<div class='button-list'>
-                                <button type='submit' class='btn btn-primary' style='float: right'>Proceed to Bill
-                                </button>
-                                <?php echo form_close(); ?>
-                            </div>";
-                            } else {
-
-                                echo "<div class='button-list'> <a href='addsale'
-                            class='btn btn-danger btn-rounded waves-effect waves-light' style='float: left'>Go Back</a></div>";
-                            }
-                            ?>
 
 
                         </div>
