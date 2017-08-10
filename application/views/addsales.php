@@ -4,16 +4,16 @@
 <style>
 
     .button-list {
-       overflow: hidden;
+        overflow: hidden;
     }
 </style>
 
 <body class="fixed-left">
 
-    <!-- Begin page -->
+<!-- Begin page -->
 <div id="wrapper">
 
-<?php include('inc/top_bar.php') ?>
+    <?php include('inc/top_bar.php') ?>
 
 
     <!-- ========== Left Sidebar Start ========== -->
@@ -47,7 +47,7 @@
                                 <?/*= $this->session->flashdata('msg'); */?>
                             </div>
 
-                        --><?php /*} */?>
+                        --><?php /*} */ ?>
 
                         <div class="clearfix"></div>
                     </div>
@@ -61,13 +61,15 @@
                         <div class="card-box">
 
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-10">
                                     <?= form_open('Welcome/salecal'); ?>
                                     <div class="row" id="details">
-                                        <div class="col-lg-10 ">
+                                        <div class="col-lg-8 ">
                                             <fieldset class="form-group">
                                                 <label>Product Name</label>
-                                                <input type="text" name="pname[]" placeholder="Product Name" required="" autocomplete="off" data-parsley-id="34" class="form-control product_search " id="pname[]">
+                                                <input type="text" name="pname[]" placeholder="Product Name" required=""
+                                                       autocomplete="off" data-parsley-id="34"
+                                                       class="form-control product_search " id="pname[]">
                                                 <input type="hidden" name="pid[]"/>
                                             </fieldset>
                                         </div>
@@ -75,7 +77,9 @@
                                         <div class="col-lg-2 ">
                                             <fieldset class="form-group">
                                                 <label>Quantity</label>
-                                                <input type="text" data-parsley-type="number" class="form-control"id="qty[]" required="" autocomplete="off" name="qty[]" placeholder="Quantity" data-parsley-id="46">
+                                                <input type="text" data-parsley-type="number" class="form-control"
+                                                       id="qty[]" required="" autocomplete="off" name="qty[]"
+                                                       placeholder="Quantity" data-parsley-id="46">
                                             </fieldset>
                                         </div>
 
@@ -107,16 +111,16 @@
         <!-- content -->
     </div>
     <!-- End content-page -->
-<?php include('inc/footer.php') ?>
-    <script src="<?=base_url()?>plugins/autocomplete/jquery.autocomplete.min.js" ></script>
+    <?php include('inc/footer.php') ?>
+    <script src="<?= base_url() ?>plugins/autocomplete/jquery.autocomplete.min.js"></script>
     <script>
-        var product =[];
+        var product = [];
         $(document).ready(function () {
 
             $.ajax({
                 url: "<?=base_url()?>/api/product/getProduct",
-                dataType:'json',
-                success:function(response){
+                dataType: 'json',
+                success: function (response) {
                     product = response;
                     autoComplete($('.product_search'));
                 }
@@ -128,26 +132,27 @@
             var x = 1;
             $(add_button).click(function (e) {
                 e.preventDefault();
-                $(wrapper).append('<div class="col-lg-10 "> <fieldset class="form-group">' +
+                $(wrapper).append('<div class="col-lg-8 "> <fieldset class="form-group">' +
                     ' <input type="text" name="pname[]" required="" autocomplete="off"  placeholder="Product Name" class="form-control product_search " data-parsley-id="34"  />' +
                     ' <input type="hidden" name="pid[]" />' +
                     '</fieldset></div>'); //add input box});
-                $(wrapper).append('<div class="col-lg-2 "> <fieldset class="form-group"> <input type="text" class="form-control" required="" data-parsley-type="number" autocomplete="off"   name="qty[]" placeholder="Quantity"/> </fieldset> </div>'); //add input box2});
+                $(wrapper).append('<div class="col-lg-2 "> <fieldset class="form-group"> <input type="text" class="form-control" required="" data-parsley-type="number" autocomplete="off"   name="qty[]" placeholder="Quantity"/> </fieldset>  </div> <div class="col-lg-2 "> <a href="#" class="delete">Delete</a> </div>'); //add input box2});
                 $(wrapper).append('<div class="clearfix"></div>');
                 autoComplete($(wrapper).find('.product_search').last());
             });
+
         });
 
-       function autoComplete(that){
-           that.autocomplete({
-               lookup: product,
-               onSelect: function (suggestion) {
-                   that.closest('fieldset').find('input[type=hidden]').val(suggestion.data);
-                   that.val(suggestion.value)
-               }
-           });
-       }
+        function autoComplete(that) {
+            that.autocomplete({
+                lookup: product,
+                onSelect: function (suggestion) {
+                    that.closest('fieldset').find('input[type=hidden]').val(suggestion.data);
+                    that.val(suggestion.value)
+                }
+            });
+        }
         /*$('body').on('keyup','.product_search',function(){
 
-        })*/
+         })*/
     </script>
