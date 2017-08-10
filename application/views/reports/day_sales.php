@@ -38,7 +38,7 @@
                                             <h6 class="text-primary text-uppercase m-b-15 m-t-10"><strong>Total sales
                                                     (Rs.)</strong></h6>
                                             <h2 class="text-success text-uppercase m-b-15 m-t-10"
-                                                data-plugin="counterup"><?php echo $data2['total']; ?></h2>
+                                                data-plugin="counterup"><?php echo round($data2['total'], 2) ?></h2>
 
                                         </div>
                                     </div>

@@ -62,7 +62,7 @@
                                                     (Rs.)</strong></h6>
 
                                             <h2 class="text-pink text-uppercase m-b-15 m-t-10"
-                                                data-plugin="counterup"> <?php echo array_sum($qty_cost); ?></h2>
+                                                data-plugin="counterup"> <?php echo round(array_sum($qty_cost), 2) ?></h2>
 
                                         </div>
                                     </div>
