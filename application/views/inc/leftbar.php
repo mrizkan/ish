@@ -15,6 +15,15 @@
             </li>
 
             <li class="has_sub">
+                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-lightbulb-o"></i> <span> Show Item </span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled">
+                    <li><a href="<?php echo base_url(); ?>Show/sinsert"> <i class="fa fa-plus"></i> Insert Product</a> </li>
+                    <li><a href="<?php echo base_url(); ?>Show/view"><i class="fa fa-television"></i> View Products</a></li>
+
+                </ul>
+            </li>
+
+            <li class="has_sub">
                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-sellsy"></i> <span> Sale </span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled">
                     <li><a href="<?php echo base_url(); ?>Welcome/addsale"><i class="fa fa-money"></i>Product Sales</a></li>

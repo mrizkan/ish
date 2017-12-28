@@ -77,6 +77,7 @@ class Welcome extends CI_Controller
                 'date' => date('Y/m/d'),
                 'rnum' => $this->input->post('rnum'),
                 'Image' => $this->input->post('Image'),
+                'itype' => 'p',
             );
 
 
