@@ -23,7 +23,7 @@ class insert_model extends CI_Model
     function  pdata()
     {
         /*$this->db->order_by('pid', 'desc');*/
-        $query = $this->db->get("product");
+        $query =$this->db->query("select * from product WHERE itype = 'p'");
         return $query;
     }
 
