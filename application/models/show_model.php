@@ -19,8 +19,9 @@ class show_model extends CI_Model
     function  pdata()
     {
         /*$this->db->order_by('pid', 'desc');*/
-        $t = "s";
-        $query =$this->db->query("select * from product WHERE itype = $t");
+       ;
+        $query =$this->db->query("select * from product WHERE itype = 's'");
+
 
         /*$query = $this->db->get('product','itype', $t);*/
         return $query;

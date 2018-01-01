@@ -76,10 +76,7 @@ class Show extends CI_Controller
     {
 
         $data["pdata"] = $this->show_model->pdata();
-        echo"<pre>";
-        print_r($data);
-        echo"</pre>";
-        exit;
+
 
         $this->load->view("pview", $data);
 

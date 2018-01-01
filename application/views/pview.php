@@ -53,6 +53,7 @@
 
 <tbody>
 <?php
+
 if ($pdata->num_rows() > 0) {
     foreach ($pdata->result() as $row) {
         ?>
