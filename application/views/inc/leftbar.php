@@ -27,6 +27,7 @@
                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-sellsy"></i> <span> Sale </span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled">
                     <li><a href="<?php echo base_url(); ?>Welcome/addsale"><i class="fa fa-money"></i>Product Sales</a></li>
+                    <li><a href="<?php echo base_url(); ?>Shopping_cart/shopping"><i class="fa fa-money"></i>Shopping Cart</a></li>
                     <!-- <li><a href="<?php /*echo base_url(); */?>Welcome/service"><i class="fa fa-wrench"></i>Service Sales</a></li>-->
 
                 </ul>

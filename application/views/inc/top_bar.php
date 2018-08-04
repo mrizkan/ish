@@ -33,7 +33,7 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-arrow profile-dropdown " aria-labelledby="Preview">
                     <!-- item-->
                     <div class="dropdown-item noti-title">
-                        <h5 class="text-overflow"><small>Welcome ! <?= $this->session->username ?></small> </h5>
+                        <h5 class="text-overflow"><small>Welcome ! <?= $this->session-> username ?></small> </h5>
                     </div>
 
                     <!-- item-->

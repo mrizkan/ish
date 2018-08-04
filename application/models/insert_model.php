@@ -16,8 +16,9 @@ class insert_model extends CI_Model
 
     function fetch_udata($user, $pass)
     {
-        $query = $this->db->query("select username, password from user where username = '$user' AND password = '$pass'")->result();
+        $query = $this->db->query("select * from user where username = '$user' AND password = '$pass'")->result();
         return $query;
+
     }
 
     function  pdata()
